@@ -1,5 +1,5 @@
-%define libname %mklibname hwinfo 13
-%define develname %mklibname -d hwinfo
+%define libname %mklibname hd 13
+%define develname %mklibname -d hd
 
 Name:           hwinfo
 License:        GPL v2 or later
@@ -28,6 +28,8 @@ Libraries for %{name}.
 Summary:        Hardware Detection Library
 Group:          Development/Libraries/C and C++
 Requires:       %libname = %version-%release
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	libhd-devel = %{version}-%{release}
 
 %description -n %{develname}
 This library collects information about the hardware installed on a
@@ -45,7 +47,7 @@ make doc
 %makeinstall_std LIBDIR=%{_libdir}
 
 install -d -m 755 %{buildroot}%{_mandir}/man8
-install -m 644 hwinfo.8 %{buildroot}%{_mandir}/man8
+install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %clean 
@@ -73,6 +75,5 @@ rm -rf %{buildroot}
 %{_sbindir}/check_hd
 %{_sbindir}/convert_hd
 %{_libdir}/libhd.so
-%{_libdir}/libhd.a
 %{_libdir}/pkgconfig/hwinfo.pc
 %{_includedir}/hd.h
