@@ -8,6 +8,7 @@ Summary:        Hardware Library
 Version:        13.38
 Release:        %mkrel 1
 Source:         %{name}-%{version}.tar.bz2
+Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
 Requires:	%{libname} = %{version}-%{release}
 BuildRequires:  doxygen flex hal-devel perl-XML-Parser perl-XML-Writer udev
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
@@ -33,7 +34,8 @@ This library collects information about the hardware installed on a
 system.
 
 %prep
-%setup
+%setup -q
+%patch1 -p0
 
 %build
 make LIBDIR=%{_libdir}
