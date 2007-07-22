@@ -24,6 +24,9 @@ Group:		System/Libraries
 %description -n %{libname}
 Libraries for %{name}.
 
+%post -n %{libname} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
+
 %package -n %{develname}
 Summary:        Hardware Detection Library
 Group:          Development/Other
