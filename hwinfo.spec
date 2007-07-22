@@ -3,7 +3,7 @@
 
 Name:           hwinfo
 License:        GPL v2 or later
-Group:          Hardware/Other
+Group:          System/Kernel and hardware
 Summary:        Hardware Library
 Version:        13.38
 Release:        %mkrel 1
@@ -19,14 +19,14 @@ library.
 
 %package -n %{libname}
 Summary:	Libraies for %{name}
-Group:		System/Libries
+Group:		System/Libraries
 
 %description -n %{libname}
 Libraries for %{name}.
 
 %package -n %{develname}
 Summary:        Hardware Detection Library
-Group:          Development/Libraries/C and C++
+Group:          Development/Other
 Requires:       %libname = %version-%release
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	libhd-devel = %{version}-%{release}
