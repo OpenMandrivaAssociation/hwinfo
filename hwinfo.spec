@@ -1,14 +1,16 @@
-%define libname %mklibname hd 13
+%define major 13
+%define libname %mklibname hd %major
 %define develname %mklibname -d hd
 
 Name:           hwinfo
 License:        GPL v2 or later
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
-Version:        13.38
+Version:        13.45
 Release:        %mkrel 1
 Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
+URL:		http://ftp.opensuse.org/pub/opensuse/distribution/SL-OSS-factory/inst-source/suse/src/
 Requires:	%{libname} = %{version}-%{release}
 BuildRequires:  doxygen flex hal-devel perl-XML-Parser perl-XML-Writer udev
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
@@ -60,17 +62,17 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc README
 %{_sbindir}/hwinfo
-%{_sbindir}//mk_isdnhwdb
+%{_sbindir}/mk_isdnhwdb
 %{_sbindir}/getsysinfo
 %{_mandir}/man8/*
-%dir %{_var}/lib/hardware
-%dir %{_var}/lib/hardware/udi
+%dir %{_localstatedir}/hardware
+%dir %{_localstatedir}/hardware/udi
 %dir %{_datadir}/hwinfo
 %{_datadir}/hwinfo/*
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/libhd.so.*
+%{_libdir}/libhd.so.%{major}*
 
 %files -n %develname
 %defattr(-,root,root)
