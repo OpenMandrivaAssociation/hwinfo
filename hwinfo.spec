@@ -6,7 +6,7 @@ Name:           hwinfo
 License:        GPL v2 or later
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
-Version:        13.45
+Version:        13.48
 Release:        %mkrel 1
 Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
