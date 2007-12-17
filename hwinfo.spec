@@ -13,7 +13,6 @@ Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
 URL:		http://ftp.opensuse.org/pub/opensuse/distribution/SL-OSS-factory/inst-source/suse/src/
 Requires:	%{libname} = %{version}-%{release}
 BuildRequires:  doxygen flex hal-devel perl-XML-Parser perl-XML-Writer udev
-BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A simple program that lists results from the hardware detection
