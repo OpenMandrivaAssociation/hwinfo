@@ -65,8 +65,8 @@ rm -rf %{buildroot}
 %{_sbindir}/mk_isdnhwdb
 %{_sbindir}/getsysinfo
 %{_mandir}/man8/*
-%dir %{_localstatedir}/hardware
-%dir %{_localstatedir}/hardware/udi
+%dir %{_localstatedir}/lib/hardware
+%dir %{_localstatedir}/lib/hardware/udi
 %dir %{_datadir}/hwinfo
 %{_datadir}/hwinfo/*
 
