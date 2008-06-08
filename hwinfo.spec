@@ -1,12 +1,12 @@
-%define major 13
+%define major 14
 %define libname %mklibname hd %major
 %define develname %mklibname -d hd
 
 Name:           hwinfo
-License:        GPL v2 or later
+License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
-Version:        13.57
+Version:        14.19
 Release:        %mkrel 1
 Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
