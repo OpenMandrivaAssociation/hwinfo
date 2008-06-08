@@ -45,7 +45,7 @@ system.
 %patch1 -p0
 
 %build
-make LIBDIR=%{_libdir}
+make LIBDIR=%{_libdir} LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
 make doc
 
 %install
