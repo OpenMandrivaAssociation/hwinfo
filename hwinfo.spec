@@ -7,7 +7,7 @@ License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
 Version:        14.19
-Release:        %mkrel 1
+Release:        %mkrel 2
 Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
 URL:		http://ftp.opensuse.org/pub/opensuse/distribution/SL-OSS-factory/inst-source/suse/src/
