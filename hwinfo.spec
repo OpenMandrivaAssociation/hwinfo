@@ -9,7 +9,7 @@ Summary:        Hardware Library
 Version:        14.19
 Release:        %mkrel 2
 Source:         %{name}-%{version}.tar.bz2
-Patch1:		hwinfo-13.38-kbd.c-tiocgdev_undefined.patch
+Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 URL:		http://ftp.opensuse.org/pub/opensuse/distribution/SL-OSS-factory/inst-source/suse/src/
 Requires:	%{libname} = %{version}-%{release}
 BuildRequires:  doxygen flex hal-devel perl-XML-Parser perl-XML-Writer udev
@@ -46,10 +46,10 @@ system.
 
 %prep
 %setup -q
-%patch1 -p0
+%patch1 -p0 -b .undefined
 
 %build
-make LIBDIR=%{_libdir} LDFLAGS="-Wl,--as-needed -Wl,--no-undefined -Lsrc"
+make LIBDIR=%{_libdir} LDFLAGS="%{optflags} -Lsrc"
 make doc
 
 %install
