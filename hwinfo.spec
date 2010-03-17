@@ -7,7 +7,7 @@ License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
 Version:        16.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Source:         http://ftp.de.debian.org/debian/pool/main/h/hwinfo/%{name}_%{version}.orig.tar.gz
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 URL:		http://packages.debian.org/unstable/admin/hwinfo
