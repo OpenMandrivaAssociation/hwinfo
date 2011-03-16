@@ -1,4 +1,4 @@
-%define major 16
+%define major 18
 %define libname %mklibname hd %major
 %define develname %mklibname -d hd
 
@@ -6,13 +6,18 @@ Name:           hwinfo
 License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
-Version:        16.0
-Release:        %mkrel 3
-Source:         http://ftp.de.debian.org/debian/pool/main/h/hwinfo/%{name}_%{version}.orig.tar.gz
+Version:        18.5
+Release:        %mkrel 1
+Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
-URL:		http://packages.debian.org/unstable/admin/hwinfo
+URL:		http://software.opensuse.org
 Requires:	%{libname} = %{version}-%{release}
-BuildRequires:  doxygen flex hal-devel perl-XML-Parser perl-XML-Writer udev
+BuildRequires:	doxygen
+BuildRequires:	flex
+BuildRequires:	perl-XML-Parser
+BuildRequires:	perl-XML-Writer
+BuildRequires:	udev
+BuildRequires:	libx86emu-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
