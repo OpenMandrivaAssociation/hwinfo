@@ -17,7 +17,9 @@ BuildRequires:	flex
 BuildRequires:	perl-XML-Parser
 BuildRequires:	perl-XML-Writer
 BuildRequires:	udev
+%ifarch %{ix86} x86_64
 BuildRequires:	libx86emu-devel
+%endif
 BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
