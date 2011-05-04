@@ -7,7 +7,7 @@ License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
 Version:        18.5
-Release:        %mkrel 1
+Release:        %mkrel 2
 Source:         %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 URL:		http://software.opensuse.org
