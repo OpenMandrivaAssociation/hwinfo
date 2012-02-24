@@ -1,4 +1,4 @@
-%define major 18
+%define major 19
 %define libname %mklibname hd %major
 %define develname %mklibname -d hd
 
@@ -6,9 +6,9 @@ Name:           hwinfo
 License:        GPLv2+
 Group:          System/Kernel and hardware
 Summary:        Hardware Library
-Version:        18.5
-Release:        %mkrel 2
-Source:         %{name}-%{version}.tar.bz2
+Version:        19.1
+Release:        1
+Source0:        %{name}-%{version}.tar.bz2
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 URL:		http://software.opensuse.org
 Requires:	%{libname} = %{version}-%{release}
@@ -20,7 +20,6 @@ BuildRequires:	udev
 %ifarch %{ix86} x86_64
 BuildRequires:	libx86emu-devel
 %endif
-BuildRoot:      %{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 A simple program that lists results from the hardware detection
@@ -59,11 +58,7 @@ install -d -m 755 %{buildroot}%{_mandir}/man8
 install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README
 %{_sbindir}/hwinfo
 %{_sbindir}/mk_isdnhwdb
@@ -75,11 +70,9 @@ rm -rf %{buildroot}
 %{_datadir}/hwinfo/*
 
 %files -n %libname
-%defattr(-,root,root)
 %{_libdir}/libhd.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %doc doc/libhd/html
 %{_sbindir}/check_hd
 %{_sbindir}/convert_hd
