@@ -5,7 +5,7 @@
 Summary:	Hardware Library
 Name:		hwinfo
 Version:	20.0
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://software.opensuse.org
