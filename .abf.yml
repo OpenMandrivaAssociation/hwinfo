@@ -1,2 +1,4 @@
+removed_sources:
+  hwinfo-20.0.tar.bz2: 3ddbbd8e939596ac0112ee139d88485e03036e23
 sources:
-  "hwinfo-20.0.tar.bz2": 3ddbbd8e939596ac0112ee139d88485e03036e23
+  hwinfo-21.5.tar.xz: 0b32da9e368460b1ebe0e71b769831f5764f05f4

@@ -1,11 +1,11 @@
-%define major	20
+%define major	21
 %define libname %mklibname hd %{major}
 %define devname %mklibname -d hd
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	20.0
-Release:	9
+Version:	21.5
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://software.opensuse.org
@@ -13,7 +13,7 @@ Url:		http://software.opensuse.org
 # git clone git://gitorious.org/opensuse/hwinfo.git
 # pushd hwinfo && git checkout %{version} &&
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.xz
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
