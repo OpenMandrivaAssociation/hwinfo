@@ -50,7 +50,7 @@ system.
 %patch1 -p0 -b .undefined
 
 %build
-make shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc"
+make shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
 make doc
 
 %install
