@@ -4,16 +4,16 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	21.23
-Release:	3
+Version:	21.31
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
-Url:		http://software.opensuse.org
+Url:		http://gitorious.org/opensuse/hwinfo
 # Source are generated for git
 # git clone https://github.com/openSUSE/hwinfo.git
 # pushd hwinfo && git checkout %{version} &&
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
-Source0:	%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.xz
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
@@ -61,7 +61,6 @@ install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %files
-%doc README
 %{_sbindir}/hwinfo
 %{_sbindir}/mk_isdnhwdb
 %{_sbindir}/getsysinfo
