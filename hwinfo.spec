@@ -4,23 +4,23 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	21.31
+Version:	21.56
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
-Url:		http://gitorious.org/opensuse/hwinfo
+Url:		https://github.com/openSUSE/hwinfo
 # Source are generated for git
 # git clone https://github.com/openSUSE/hwinfo.git
 # pushd hwinfo && git checkout %{version} &&
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
-Source0:	%{name}-%{version}.tar.xz
+Source0:	https://codeload.github.com/openSUSE/hwinfo/%{name}-%{version}.tar.gz
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
 BuildRequires:	perl-XML-Parser
 BuildRequires:	perl-XML-Writer
-BuildRequires:	udev
-%ifarch %{ix86}	x86_64
+BuildRequires:	pkgconfig(libudev)
+%ifarch %{ix86}	%{x86_64}
 BuildRequires:	libx86emu-devel
 %endif
 
@@ -50,14 +50,15 @@ system.
 %patch1 -p0 -b .undefined
 
 %build
-make shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
-make doc
+%setup_compile_flags
+%make shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
+#make doc
 
 %install
 %makeinstall_std LIBDIR=%{_libdir}
 
-install -d -m 755 %{buildroot}%{_mandir}/man8
-install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
+#install -d -m 755 %{buildroot}%{_mandir}/man8
+#install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %files
@@ -68,7 +69,7 @@ mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 %dir %{_localstatedir}/lib/hardware/udi
 %dir %{_datadir}/hwinfo
 %{_datadir}/hwinfo/*
-%{_mandir}/man8/*
+#{_mandir}/man8/*
 
 %files -n %{libname}
 %{_libdir}/libhd.so.%{major}*
