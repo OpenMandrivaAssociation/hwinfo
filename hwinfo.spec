@@ -50,12 +50,13 @@ system.
 %patch1 -p0 -b .undefined
 
 %build
+%global optflags %{optflags} -Qunused-arguments
 %setup_compile_flags
-%make shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
+%make_build shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
 #make doc
 
 %install
-%makeinstall_std LIBDIR=%{_libdir}
+%make_install LIBDIR=%{_libdir}
 
 #install -d -m 755 %{buildroot}%{_mandir}/man8
 #install -m 644 doc/hwinfo.8 %{buildroot}%{_mandir}/man8
