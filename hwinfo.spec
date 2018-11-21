@@ -48,6 +48,7 @@ system.
 %prep
 %setup -q
 %patch1 -p0 -b .undefined
+echo %{version} > VERSION
 
 %build
 %global optflags %{optflags} -Qunused-arguments
