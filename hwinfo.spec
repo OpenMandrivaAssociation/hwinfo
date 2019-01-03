@@ -15,7 +15,6 @@ Url:		https://github.com/openSUSE/hwinfo
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
 Source0:	https://codeload.github.com/openSUSE/hwinfo/%{name}-%{version}.tar.gz
 Patch0:		remove-git2log-and-references.patch
-Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
 BuildRequires:	perl(XML::Parser)
