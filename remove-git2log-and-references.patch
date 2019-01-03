@@ -1,0 +1,26 @@
+Index: hwinfo-21.52/Makefile
+===================================================================
+--- hwinfo-21.52/Makefile
++++ hwinfo-21.52/Makefile	2018-04-16 22:40:31.668829177 +0200
+@@ -10,13 +10,11 @@
+ 
+ export SO_LIBS
+ 
+-GIT2LOG := $(shell if [ -x ./git2log ] ; then echo ./git2log --update ; else echo true ; fi)
+ GITDEPS := $(shell [ -d .git ] && echo .git/HEAD .git/refs/heads .git/refs/tags)
+ BRANCH  := $(shell [ -d .git ] && git branch | perl -ne 'print $$_ if s/^\*\s*//')
+ ifdef HWINFO_VERSION
+ VERSION := $(shell echo ${HWINFO_VERSION} > VERSION; cat VERSION)
+ else
+-VERSION := $(shell $(GIT2LOG) --version VERSION ; cat VERSION)
+ endif
+ PREFIX  := hwinfo-$(VERSION)
+ 
+@@ -47,7 +45,6 @@
+ 	@true
+ else
+ changelog: $(GITDEPS)
+-	$(GIT2LOG) --changelog changelog
+ endif
+ 
+ hwscan: hwscan.o $(LIBHD)
