@@ -14,11 +14,12 @@ Url:		https://github.com/openSUSE/hwinfo
 # pushd hwinfo && git checkout %{version} &&
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
 Source0:	https://codeload.github.com/openSUSE/hwinfo/%{name}-%{version}.tar.gz
+Patch0:		remove-git2log-and-references.patch
 Patch1:		hwinfo-14.19-kbd.c-tiocgdev_undefined.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
-BuildRequires:	perl-XML-Parser
-BuildRequires:	perl-XML-Writer
+BuildRequires:	perl(XML::Parser)
+BuildRequires:	perl(XML::Writer)
 BuildRequires:	pkgconfig(libudev)
 %ifarch %{ix86}	%{x86_64}
 BuildRequires:	libx86emu-devel
@@ -47,7 +48,7 @@ system.
 
 %prep
 %setup -q
-%patch1 -p0 -b .undefined
+%autopatch -p1
 echo %{version} > VERSION
 
 %build
