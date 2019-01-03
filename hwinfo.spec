@@ -4,8 +4,8 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	21.56
-Release:	2
+Version:	21.63
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		https://github.com/openSUSE/hwinfo
