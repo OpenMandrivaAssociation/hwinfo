@@ -4,7 +4,7 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	21.63
+Version:	21.72
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -13,13 +13,14 @@ Url:		https://github.com/openSUSE/hwinfo
 # git clone https://github.com/openSUSE/hwinfo.git
 # pushd hwinfo && git checkout %{version} &&
 # popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
-Source0:	https://codeload.github.com/openSUSE/hwinfo/%{name}-%{version}.tar.gz
+Source0:	https://github.com/openSUSE/hwinfo/releases/%{name}-%{version}.tar.gz
 Patch0:		remove-git2log-and-references.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	perl(XML::Writer)
 BuildRequires:	pkgconfig(libudev)
+BuildRequires:	pkgconfig(uuid)
 %ifarch %{ix86}	%{x86_64}
 BuildRequires:	libx86emu-devel
 %endif
@@ -46,13 +47,12 @@ This library collects information about the hardware installed on a
 system.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 echo %{version} > VERSION
 
 %build
 %global optflags %{optflags} -Qunused-arguments
-%setup_compile_flags
+%set_build_flags
 %make_build shared CC=%{__cc} LIBDIR=%{_libdir} RPM_OPT_FLAGS="%{optflags}" LDFLAGS="%{ldflags} -Lsrc" -j1
 #make doc
 
