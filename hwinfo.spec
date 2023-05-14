@@ -77,8 +77,8 @@ mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 %{_libdir}/libhd.so.%{major}*
 
 %files -n %{devname}
-%{_sbindir}/check_hd
-%{_sbindir}/convert_hd
+#{_sbindir}/check_hd
+#{_sbindir}/convert_hd
 %{_libdir}/libhd.so
 %{_libdir}/pkgconfig/hwinfo.pc
 %{_includedir}/hd.h
