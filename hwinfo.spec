@@ -64,9 +64,9 @@ echo %{version} > VERSION
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %files
-%{_sbindir}/hwinfo
-%{_sbindir}/mk_isdnhwdb
-%{_sbindir}/getsysinfo
+#{_bindir}/hwinfo
+#{_bindir}/mk_isdnhwdb
+#{_bindir}/getsysinfo
 %dir %{_localstatedir}/lib/hardware
 %dir %{_localstatedir}/lib/hardware/udi
 %dir %{_datadir}/hwinfo
