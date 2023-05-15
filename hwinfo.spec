@@ -64,9 +64,9 @@ echo %{version} > VERSION
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %files
-#{_bindir}/hwinfo
-#{_bindir}/mk_isdnhwdb
-#{_bindir}/getsysinfo
+%{_bindir}/hwinfo
+%{_bindir}/mk_isdnhwdb
+%{_bindir}/getsysinfo
 %dir %{_localstatedir}/lib/hardware
 %dir %{_localstatedir}/lib/hardware/udi
 %dir %{_datadir}/hwinfo
@@ -77,8 +77,8 @@ mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 %{_libdir}/libhd.so.%{major}*
 
 %files -n %{devname}
-#{_sbindir}/check_hd
-#{_sbindir}/convert_hd
+%{_sbindir}/check_hd
+%{_sbindir}/convert_hd
 %{_libdir}/libhd.so
 %{_libdir}/pkgconfig/hwinfo.pc
 %{_includedir}/hd.h
