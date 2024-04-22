@@ -1,19 +1,16 @@
-%define major 21
-%define libname %mklibname hd %{major}
+%define major 23
+%define oldlibname %mklibname hd 21
+%define libname %mklibname hd
 %define devname %mklibname -d hd
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	21.72
-Release:	2
+Version:	23.2
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		https://github.com/openSUSE/hwinfo
-# Source are generated for git
-# git clone https://github.com/openSUSE/hwinfo.git
-# pushd hwinfo && git checkout %{version} &&
-# popd && tar -caf %{name}-%{version}.tar.gz  hwinfo
-Source0:	https://github.com/openSUSE/hwinfo/releases/%{name}-%{version}.tar.gz
+Source0:	https://github.com/openSUSE/hwinfo/archive/refs/tags/%{version}.tar.gz
 Patch0:		remove-git2log-and-references.patch
 BuildRequires:	doxygen
 BuildRequires:	flex
@@ -32,6 +29,7 @@ library.
 %package -n %{libname}
 Summary:	Libraies for %{name}
 Group:		System/Libraries
+%rename %{oldlibname}
 
 %description -n %{libname}
 Libraries for %{name}.
@@ -49,6 +47,7 @@ system.
 %prep
 %autosetup -p1
 echo %{version} > VERSION
+sed -i -e 's,sbin,bin,g' Makefile
 
 %build
 %global optflags %{optflags} -Qunused-arguments
@@ -64,9 +63,9 @@ echo %{version} > VERSION
 mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 
 %files
-%{_sbindir}/hwinfo
-%{_sbindir}/mk_isdnhwdb
-%{_sbindir}/getsysinfo
+%{_bindir}/hwinfo
+%{_bindir}/mk_isdnhwdb
+%{_bindir}/getsysinfo
 %dir %{_localstatedir}/lib/hardware
 %dir %{_localstatedir}/lib/hardware/udi
 %dir %{_datadir}/hwinfo
@@ -77,8 +76,8 @@ mkdir -p %{buildroot}%{_var}/lib/hardware/udi
 %{_libdir}/libhd.so.%{major}*
 
 %files -n %{devname}
-%{_sbindir}/check_hd
-%{_sbindir}/convert_hd
+%{_bindir}/check_hd
+%{_bindir}/convert_hd
 %{_libdir}/libhd.so
 %{_libdir}/pkgconfig/hwinfo.pc
 %{_includedir}/hd.h
