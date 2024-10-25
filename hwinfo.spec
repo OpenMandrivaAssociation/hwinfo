@@ -5,7 +5,7 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	23.2
+Version:	23.3
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
