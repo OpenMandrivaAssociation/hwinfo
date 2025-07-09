@@ -1,11 +1,11 @@
-%define major 23
+%define major 24
 %define oldlibname %mklibname hd 21
 %define libname %mklibname hd
 %define devname %mklibname -d hd
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	23.3
+Version:	24.1
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
