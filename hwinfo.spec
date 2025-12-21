@@ -12,6 +12,7 @@ Group:		System/Kernel and hardware
 Url:		https://github.com/openSUSE/hwinfo
 Source0:	https://github.com/openSUSE/hwinfo/archive/refs/tags/%{version}.tar.gz
 Patch0:		remove-git2log-and-references.patch
+BuildRequires:	make
 BuildRequires:	doxygen
 BuildRequires:	flex
 BuildRequires:	perl(XML::Parser)
