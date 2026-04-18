@@ -5,7 +5,7 @@
 
 Summary:	Hardware Library
 Name:		hwinfo
-Version:	25.0
+Version:	25.2
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
